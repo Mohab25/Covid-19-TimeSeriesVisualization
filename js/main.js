@@ -11,13 +11,13 @@ let states = svg.append('g').attr('id','states');
 let circles = svg.append('g').attr('id','circles');
 let labels = svg.append('g').attr('id','labels');
 //getting the data
-let data =d3.json('http://localhost:8000/data/world.json').then(d=>{console.log(d);
+let data =d3.json('https://github.com/Mohab25/Covid-19-TimeSeriesVisualization/blob/master/data/world.json').then(d=>{console.log(d);
 states.selectAll('path').data(d.features).enter().append('path').attr('fill','#d3d3d3').attr('d',path).style('stroke','#fff');
 });
 //setup the scale factor 
 let scalefactor =1./190. ; 
 //making bubbles
-d3.csv('http://localhost:8000/data/conf.txt').then(csv=>{
+d3.csv('https://github.com/Mohab25/Covid-19-TimeSeriesVisualization/blob/master/data/conf.txt').then(csv=>{
 
     circles.selectAll('circle').data(csv).enter().append('circle')
     .attr('cx',d=>{return projection([+d["Long"],+d["Lat"]])[0]}).attr('cy',d=>{return projection([+d["Long"],+d["Lat"]])[1]})
