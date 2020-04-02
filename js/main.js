@@ -17,7 +17,7 @@ states.selectAll('path').data(d.features).enter().append('path').attr('fill','#d
 //setup the scale factor 
 let scalefactor =1./190. ; 
 //making bubbles
-d3.csv('https://github.com/Mohab25/Covid-19-TimeSeriesVisualization/blob/master/data/conf.txt').then(csv=>{
+d3.csv('https://gist.githubusercontent.com/Mohab25/e5bd73def0a6ba0a3a4fdf34e395bf7b/raw/d9178a6f0a5d7e6ead806da0844dae0ea664fc73/conf.txt').then(csv=>{
 
     circles.selectAll('circle').data(csv).enter().append('circle')
     .attr('cx',d=>{return projection([+d["Long"],+d["Lat"]])[0]}).attr('cy',d=>{return projection([+d["Long"],+d["Lat"]])[1]})
