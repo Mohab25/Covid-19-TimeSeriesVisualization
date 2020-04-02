@@ -11,7 +11,7 @@ let states = svg.append('g').attr('id','states');
 let circles = svg.append('g').attr('id','circles');
 let labels = svg.append('g').attr('id','labels');
 //getting the data
-let data =d3.json('https://github.com/Mohab25/Covid-19-TimeSeriesVisualization/blob/master/data/world.json').then(d=>{console.log(d);
+let data =d3.json('https://gist.githubusercontent.com/Mohab25/e5bd73def0a6ba0a3a4fdf34e395bf7b/raw/d9178a6f0a5d7e6ead806da0844dae0ea664fc73/world.json').then(d=>{console.log(d);
 states.selectAll('path').data(d.features).enter().append('path').attr('fill','#d3d3d3').attr('d',path).style('stroke','#fff');
 });
 //setup the scale factor 
