@@ -12,14 +12,14 @@ let circles = svg.append('g').attr('id','circles');
 let labels = svg.append('g').attr('id','labels');
 //getting the data
 let data =d3.json('https://gist.githubusercontent.com/Mohab25/e5bd73def0a6ba0a3a4fdf34e395bf7b/raw/d9178a6f0a5d7e6ead806da0844dae0ea664fc73/world.json').then(d=>{console.log(d);
-states.selectAll('path').data(d.features).enter().append('path').attr('fill','#d3d3d3').attr('d',path).style('stroke','#fff');
+states.selectAll('path').data(d.features).join('path').attr('fill','#d3d3d3').attr('d',path).style('stroke','#fff');
 });
 //setup the scale factor 
-let scalefactor =1./190. ; 
+let scalefactor =0.005 ; 
 //making bubbles
 d3.csv('https://gist.githubusercontent.com/Mohab25/e5bd73def0a6ba0a3a4fdf34e395bf7b/raw/d9178a6f0a5d7e6ead806da0844dae0ea664fc73/conf.txt').then(csv=>{
 
-    circles.selectAll('circle').data(csv).enter().append('circle')
+    circles.selectAll('circle').data(csv).join('circle')
     .attr('cx',d=>{return projection([+d["Long"],+d["Lat"]])[0]}).attr('cy',d=>{return projection([+d["Long"],+d["Lat"]])[1]})
     .attr('r',d=>{ return (+d["1/26/2020"])*scalefactor;}).attr('fill','red').style('opacity','0.6'); 
 
