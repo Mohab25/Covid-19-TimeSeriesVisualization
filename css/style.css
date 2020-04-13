@@ -6,7 +6,7 @@
 #slider{
     -webkit-appearance: none;
     appearance: none;
-    width:750px; height:25px; background: #d3d3d3;
+    width:800px; height:25px; background: #d3d3d3;
     
 }
 #slider::-webkit-slider-thumb{
